@@ -1,0 +1,6 @@
+# Deck-wide settings, and placeholders every slide can use ({{author}}).
+# A slide's own front matter overrides these.
+
+# Text size in percent: 90 shrinks all text, 110 grows it.
+text_size: 100
+author: Your Name

@@ -1,0 +1,21 @@
+[package]
+name = "dullview"
+version = "0.1.0"
+edition = "2024"
+description = "Markdown slide decks with templates and live reload"
+license = "MIT"
+repository = "https://github.com/vangheem/dullview"
+
+[dependencies]
+roxmltree = "0.20"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+rune = { git = "https://github.com/vangheem/rune", rev = "ee055d312ad958f937fa715616e336bfabce2f09" }
+rune-kit = { git = "https://github.com/vangheem/rune", rev = "ee055d312ad958f937fa715616e336bfabce2f09", features = ["markdown", "mermaid"] }
+rune-theme-opencode = { git = "https://github.com/vangheem/rune", rev = "ee055d312ad958f937fa715616e336bfabce2f09" }
+
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+opt-level = 2

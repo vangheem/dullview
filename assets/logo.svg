@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4a63"/>
+      <stop offset="1" stop-color="#1c2433"/>
+    </linearGradient>
+    <linearGradient id="slide" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e6ebf2"/>
+    </linearGradient>
+    <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fb1cc"/>
+      <stop offset="1" stop-color="#7f93b2"/>
+    </linearGradient>
+    <clipPath id="eyeball">
+      <ellipse cx="512" cy="300" rx="132" ry="96"/>
+    </clipPath>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- App-icon squircle -->
+  <rect x="64" y="64" width="896" height="896" rx="200" fill="url(#bg)"/>
+
+  <!-- A sleepy eye peeking over the slide: the "dull" view -->
+  <g filter="url(#shadow)">
+    <ellipse cx="512" cy="300" rx="132" ry="96" fill="#ffffff"/>
+    <g clip-path="url(#eyeball)">
+      <circle cx="540" cy="338" r="62" fill="#1c2433"/>
+      <circle cx="562" cy="318" r="16" fill="#ffffff"/>
+      <!-- Heavy half-closed lid -->
+      <rect x="370" y="190" width="290" height="118" fill="url(#lid)"/>
+    </g>
+    <path d="M380 308 Q512 326 644 308" fill="none" stroke="#1c2433" stroke-width="14" stroke-linecap="round"/>
+    <ellipse cx="512" cy="300" rx="132" ry="96" fill="none" stroke="#1c2433" stroke-width="14"/>
+  </g>
+
+  <!-- Tripod legs -->
+  <g stroke="#c5d0df" stroke-width="22" stroke-linecap="round">
+    <line x1="512" y1="760" x2="400" y2="872"/>
+    <line x1="512" y1="760" x2="624" y2="872"/>
+    <line x1="512" y1="740" x2="512" y2="868"/>
+  </g>
+
+  <!-- The slide -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="372" width="624" height="388" rx="36" fill="url(#slide)"/>
+  </g>
+  <!-- Markdown heading mark and text lines -->
+  <g fill="none" stroke="#2f6fdf" stroke-width="20" stroke-linecap="round">
+    <line x1="272" y1="470" x2="264" y2="560"/>
+    <line x1="312" y1="470" x2="304" y2="560"/>
+    <line x1="252" y1="496" x2="330" y2="496"/>
+    <line x1="246" y1="534" x2="324" y2="534"/>
+  </g>
+  <rect x="368" y="492" width="300" height="34" rx="17" fill="#1c2433"/>
+  <rect x="252" y="604" width="472" height="26" rx="13" fill="#b4c0d1"/>
+  <rect x="252" y="656" width="360" height="26" rx="13" fill="#b4c0d1"/>
+</svg>

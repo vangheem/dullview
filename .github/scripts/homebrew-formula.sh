@@ -32,6 +32,20 @@ class Dullview < Formula
     bin.install "dullview"
   end
 
+  def post_install
+    # Adds dullview.app to ~/Applications. dullview also does this on its first run.
+    quiet_system bin/"dullview", "install-app" if OS.mac?
+  end
+
+  def caveats
+    <<~EOS
+      Run \`dullview\` (or open dullview.app) to pick a presentation, or \`dullview path/to/deck\`.
+      On macOS, dullview.app is added to ~/Applications; to redo or undo that:
+        dullview install-app
+        dullview uninstall-app
+    EOS
+  end
+
   test do
     system bin/"dullview", "--init", testpath/"deck"
     assert_path_exists testpath/"deck/_templates/default.md"

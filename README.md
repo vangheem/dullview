@@ -20,7 +20,7 @@ A folder of markdown files as a slide deck. Templates handle the layout, PowerPo
 brew install vangheem/tap/dullview
 ```
 
-`brew upgrade dullview` updates it.
+On macOS this also adds **dullview.app** to `~/Applications`, so you can open it from Spotlight, Launchpad or the Dock (`dullview install-app` / `uninstall-app` redo or undo that; dullview also adds it on its first run). `brew upgrade dullview` updates both.
 
 ### Prebuilt binaries
 
@@ -41,17 +41,27 @@ curl -L https://github.com/vangheem/dullview/releases/latest/download/dullview-m
 ### From source
 
 ```sh
-make install   # cargo build --release, then copies dullview to ~/.local/bin
+make install   # cargo build --release, copies dullview to ~/.local/bin, and adds dullview.app on macOS
 ```
 
 ## Use
 
 ```sh
+dullview                                          # start screen: open a presentation or a recent one
 dullview --init path/to/pres                      # create a starter deck
-dullview path/to/pres                             # present it
+dullview path/to/pres                             # present a folder
+dullview talk.tar.gz                              # or an archive (.zip, .tar, .tar.gz, .tgz, .tar.bz2, .tar.xz)
 dullview --import-potx brand.potx path/to/pres    # add a PowerPoint template's layouts
 dullview --templates path/to/pres                 # list a deck's templates and placeholders
 ```
+
+### Opening presentations
+
+- **File → Open Folder…** (⌘O) opens a deck folder; **File → Open Archive…** (⇧⌘O) opens a `.zip` or tar archive of one. Dropping a folder or archive on the window works too.
+- An archive is unpacked into dullview's cache (`~/Library/Caches/dullview` on macOS, `~/.cache/dullview` elsewhere). If it holds a single folder, that folder is the deck. Replacing the archive reloads it.
+- **File → Close Presentation** (⇧⌘W), or **← All presentations** in the slide overview, goes back to the start screen.
+- Started without a presentation, dullview shows a start screen with your recent presentations and a preview of each one's first slide; click one to open it. The list lives in `~/.config/dullview/config.json` (or `$XDG_CONFIG_HOME/dullview`).
+- Fonts load when dullview starts, so a deck opened later that ships its own font files shows them after you start dullview with that deck.
 
 ## A deck
 

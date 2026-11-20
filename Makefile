@@ -12,6 +12,7 @@ build:
 install: build
 	mkdir -p $(BINDIR)
 	install -m 755 target/release/dullview $(BINDIR)/dullview
+	@if [ "$$(uname)" = Darwin ]; then $(BINDIR)/dullview install-app; fi
 
 test:
 	cargo test

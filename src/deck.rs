@@ -55,6 +55,17 @@ pub struct Deck {
     pub text_size: f32,
 }
 
+impl Deck {
+    /// No presentation open.
+    pub fn empty() -> Deck {
+        Deck {
+            slides: Vec::new(),
+            images: Vec::new(),
+            text_size: 1.0,
+        }
+    }
+}
+
 /// Splits `---` fenced `key: value` front matter from the rest of `src`.
 pub fn front_matter(src: &str) -> (Vars, &str) {
     let mut vars = Vars::new();
